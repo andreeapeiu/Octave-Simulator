@@ -1,7 +1,7 @@
 # Octave-Simulator
 
 ## Overview
-The program uses a vector of structures to efficiently store the number of rows, columns, and the sum of matrix elements, along with the actual matrix data. The algorithm starts with a start=1 variable to check if the Q command has been received. The program then enters a while loop to read characters from standard input and process commands accordingly.
+The program uses a vector of structures to efficiently store the number of rows, columns, and the sum of matrix elements, along with the actual matrix data. The algorithm starts with a `start=1` variable to check if the Q command has been received. The program then enters a while loop to read characters from standard input and process commands accordingly.
 
 ## Features and Functionality
 
@@ -22,26 +22,26 @@ The program uses a vector of structures to efficiently store the number of rows,
 ### 4. Matrix Multiplication (M command)
 * Reads the M character followed by two integer indices corresponding to the matrices to be multiplied.  
 * Uses the classic three-loop nested algorithm for multiplication.  
-* Calls multiply_matrix() to return the resulting matrix and appends it to the structure vector.  
+* Calls `multiply_matrix()` to return the resulting matrix and appends it to the structure vector.  
 
 ### 5. Matrix Transposition (T command)
 * Reads the T character and the matrix index.  
-* Validates the index, then calls transpose_matrix() to perform an in-place transposition.  
+* Validates the index, then calls `transpose_matrix()` to perform an in-place transposition.  
 
 ### 6. Deleting a Matrix from Memory (F command)
 * Reads the F character and an index to delete the corresponding matrix.  
-* Calls deallocate_matrix() to free memory and remove the matrix.  
+* Calls `deallocate_matrix()` to free memory and remove the matrix.  
 * Shifts subsequent matrices left by one position to maintain continuity.  
 * If too many matrices are removed, the structure vector capacity is reduced by half.  
 
 ### 7. Sorting Matrices by Sum of Elements (O command)
-* Calls sum() to compute the sum of each matrix’s elements and stores it in the structure vector.  
-* Uses sort_matrix() to sort matrices in ascending order based on their sum (modulo 10^4 + 7).  
+* Calls `sum()` to compute the sum of each matrix’s elements and stores it in the structure vector.  
+* Uses `sort_matrix()` to sort matrices in ascending order based on their sum (modulo 10^4 + 7).  
 
 ### 8. Resizing a Matrix (C command)
 * Reads the C character and an index to resize the corresponding matrix.  
 * Uses an auxiliary structure new to hold only the selected elements.  
-* Calls redim() to perform in-place resizing of the matrix at the given index.  
+* Calls `redim()` to perform in-place resizing of the matrix at the given index.  
 
 ### 9. Exponentiating a Matrix in Logarithmic Time (R command)
 * Reads the R character, a matrix index, and the exponent.  
@@ -60,10 +60,10 @@ The program uses a vector of structures to efficiently store the number of rows,
 
 ### 11. Exiting the Program and Freeing Resources (Q command)
 * Reads the Q character, terminates the program, and frees all allocated memory.  
-* Sets start=0 as a safety measure.  
+* Sets `start=0` as a safety measure.  
 
 ### 12. Handling Unrecognized Commands
-* If an invalid character is read, displays the error message: "Unrecognized command.".  
+* If an invalid character is read, displays the error message: `"Unrecognized command."`.  
 
 ## Implementation Details
 Uses a resizable array strategy for efficient memory management.  
